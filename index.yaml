@@ -3,6 +3,29 @@ entries:
   binderhub-service:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-01T09:24:06.264995105Z"
+    description: A BinderHub installation separate from JupyterHub
+    digest: 199f93d591c2f8bc6065f7538984b038c3d8de7fe1dcc01fceb387c1b66f52d7
+    home: https://2i2c.org/binderhub-service
+    icon: https://binderhub.readthedocs.io/en/latest/_static/logo.png
+    keywords:
+    - binderhub
+    - binderhub-service
+    - repo2docker
+    - jupyterhub
+    - jupyter
+    kubeVersion: '>=1.23.0-0'
+    maintainers:
+    - email: erik@sundellopensource.se
+      name: Erik Sundell
+    name: binderhub-service
+    sources:
+    - https://github.com/2i2c-org/binderhub-service
+    urls:
+    - https://2i2c.org/binderhub-service/binderhub-service-0.1.0-0.dev.git.21.h130ad72.tgz
+    version: 0.1.0-0.dev.git.21.h130ad72
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-03-24T21:03:28.357556061Z"
     description: A BinderHub installation separate from JupyterHub
     digest: 475105092caa1b3129c1a29750156928cf5ecbca5624e15cbace978358c88e57
@@ -47,4 +70,4 @@ entries:
     urls:
     - https://2i2c.org/binderhub-service/binderhub-service-0.1.0-0.dev.git.10.hdba54b4.tgz
     version: 0.1.0-0.dev.git.10.hdba54b4
-generated: "2023-03-24T21:03:28.356773757Z"
+generated: "2023-04-01T09:24:06.264063663Z"

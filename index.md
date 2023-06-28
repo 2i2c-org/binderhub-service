@@ -1,4 +1,5 @@
-# Helm chart repository for binderhub-service</title>
+# Helm chart repository for binderhub-service
+
 This is a bare Helm chart repository specifically for the binderhub-service chart.
 
 For more information, visit the [project's documentation](https://binderhub-service.readthedocs.io/).

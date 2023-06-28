@@ -12,6 +12,6 @@ For more information, visit the [project's documentation](https://binderhub-serv
   {%- assign sortedcharts = chartmap[1] | sort: 'created' | reverse -%}
   {%- for chart in sortedcharts -%}
     {%- unless chart.version contains "-" %} | [{{ chart.version }}]({{ chart.urls[0] }}) | {{ chart.created | date_to_long_string }} | {{ chart.appVersion }} |
-    {%- endunless -%}
+    {%- endunless %}
   {%- endfor %}
-{% endfor %}
+{%- endfor %}

@@ -38,7 +38,6 @@ config:
   BinderHub:
     base_url: /
     port: 8585
-    enable_api_only_mode: true
 extraConfig:
   # binderhub-service creates a k8s Secret with a docker config.json file
   # including registry credentials.

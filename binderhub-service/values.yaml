@@ -123,6 +123,7 @@ dockerApi:
     pullPolicy: ""
     pullSecrets: []
   resources: {}
+  initContainers: []
   securityContext:
     privileged: true
     runAsUser: 0

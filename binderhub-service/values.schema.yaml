@@ -219,6 +219,8 @@ properties:
       nodeSelector: *nodeSelector
       affinity: *affinity
       tolerations: *tolerations
+      initContainers:
+        type: array
       extraArgs:
         type: array
       extraFiles:

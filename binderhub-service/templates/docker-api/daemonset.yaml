@@ -20,6 +20,10 @@ spec:
         {{- . | toYaml | nindent 8 }}
       {{- end }}
     spec:
+      {{- with .Values.dockerApi.initContainers }}
+      initContainers:
+        {{- . | toYaml | nindent 8 }}
+      {{- end }}
       containers:
         - name: docker-api
           image: {{ .Values.dockerApi.image.repository }}:{{ .Values.dockerApi.image.tag }}

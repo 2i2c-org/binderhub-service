@@ -93,14 +93,6 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 20
 
-    # Start a local container registry that the binderhub build pods can push
-    # to, and the k8s cluster can pull images from for use by pods.
-    services:
-      registry:
-        image: docker.io/library/registry:latest
-        ports:
-          - 5000:5000
-
     strategy:
       fail-fast: false
       matrix:
@@ -121,23 +113,6 @@ jobs:
         with:
           # chartpress needs git history
           fetch-depth: 0
-
-      - name: Determine how to reference local container registry
-        run: |
-          LOCAL_REGISTRY_HOST=$(hostname --all-ip-addresses | awk '{print $1}'):5000
-          echo LOCAL_REGISTRY_HOST="$LOCAL_REGISTRY_HOST" >> $GITHUB_ENV
-
-      - name: Configure k3s to pull from local container registry
-        run: |
-          # Allow k3s to pull from private registry
-          # https://docs.k3s.io/installation/private-registry
-          sudo mkdir -p /etc/rancher/k3s/
-          cat << EOF | sudo tee /etc/rancher/k3s/registries.yaml
-          mirrors:
-            "$LOCAL_REGISTRY_HOST":
-              endpoint:
-                - "http://$LOCAL_REGISTRY_HOST"
-          EOF
 
       # Starts a k8s cluster with NetworkPolicy enforcement and installs both
       # kubectl and helm
@@ -180,10 +155,12 @@ jobs:
         run: |
           helm upgrade --install binderhub-service ./binderhub-service \
               --values dev-config.yaml \
-              --set config.BinderHub.image_prefix=$LOCAL_REGISTRY_HOST/binderhub-service/ \
-              --set config.DockerRegistry.url=http://$LOCAL_REGISTRY_HOST \
-              --set buildPodsRegistryCredentials.server=http://$LOCAL_REGISTRY_HOST \
-              --set dockerApi.extraFiles.daemon-json.data.insecure-registries[0]=$LOCAL_REGISTRY_HOST
+              --set config.BinderHub.image_prefix=quay.io/repository/2i2c/binderhub-service-test-chart/ \
+              --set config.DockerRegistry.url=https://quay.io \
+              --set config.DockerRegistry.username=${{ secrets.QUAY_TEST_USERNAME }} \
+              --set config.DockerRegistry.password=${{ secrets.QUAY_TEST_PASSWORD }} \
+              --set buildPodsRegistryCredentials.server=https://quay.io \
+              --set buildPodsRegistryCredentials.password=${{ secrets.QUAY_TEST_PASSWORD }}
 
       # ref: https://github.com/jupyterhub/action-k8s-await-workloads
       - uses: jupyterhub/action-k8s-await-workloads@v3

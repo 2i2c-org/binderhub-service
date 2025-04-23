@@ -30,5 +30,6 @@ spec:
               kubernetes.io/metadata.name: kube-system
           podSelector:
             matchLabels:
-              # This label is also added to EKS core-dns deployments
+              # This label is added to dns deployments across all cloud providers
+              # no matter their type, core-dns or kube-dns.
               k8s-app: kube-dns

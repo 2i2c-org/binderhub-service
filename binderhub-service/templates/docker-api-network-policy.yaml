@@ -5,7 +5,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: binderhub-service
+      {{- include "binderhub-service.selectorLabels" . | nindent 6 }}
       app.kubernetes.io/component: docker-api
   policyTypes:
     - Egress

@@ -56,7 +56,6 @@ properties:
     properties:
       enabled:
         type: boolean
-        default: true
         description: |
           Enable or disable the network policies that block traffic to
           private IPs from the docker-api and builder pods.

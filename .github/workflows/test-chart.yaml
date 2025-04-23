@@ -155,7 +155,7 @@ jobs:
         run: |
           helm upgrade --install binderhub-service ./binderhub-service \
               --values dev-config.yaml \
-              --set config.BinderHub.image_prefix=quay.io/repository/2i2c/binderhub-service-test-chart/ \
+              --set config.BinderHub.image_prefix=quay.io/2i2c/binderhub-service-test-chart/ \
               --set config.DockerRegistry.url=https://quay.io \
               --set config.DockerRegistry.username=${{ secrets.QUAY_TEST_USERNAME }} \
               --set config.DockerRegistry.password=${{ secrets.QUAY_TEST_PASSWORD }} \

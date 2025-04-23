@@ -6,6 +6,10 @@
 #       all values with localhost:5000 below are set explicitly from the test
 #       job to an IP that is reachable instead.
 #
+# Disable network policy so that the test job is able to reach a local docker
+# registry
+networkpolicy:
+  enabled: false
 config:
   # DockerRegistry is a jupyterhub/binderhub class that is used to call
   # get_image_manifest, which determines if an image needs to be built or is

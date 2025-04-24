@@ -50,7 +50,16 @@ properties:
   custom:
     type: object
     additionalProperties: true
-
+  networkPolicy:
+    type: object
+    additionalProperties: false
+    properties:
+      enabled:
+        type: boolean
+        description: |
+          Enable or disable the network policies that block traffic to
+          private IPs from the docker-api and builder pods.
+          This is enabled by default.
   # Resources for the BinderHub created build pods
   # ---------------------------------------------------------------------------
   #

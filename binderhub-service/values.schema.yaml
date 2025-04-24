@@ -50,7 +50,7 @@ properties:
   custom:
     type: object
     additionalProperties: true
-  networkpolicy:
+  networkPolicy:
     type: object
     additionalProperties: false
     properties:

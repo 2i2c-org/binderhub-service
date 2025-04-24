@@ -8,7 +8,7 @@
 #
 # Disable network policy so that the test job is able to reach a local docker
 # registry
-networkpolicy:
+networkPolicy:
   enabled: false
 config:
   # DockerRegistry is a jupyterhub/binderhub class that is used to call

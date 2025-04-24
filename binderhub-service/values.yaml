@@ -5,7 +5,7 @@ nameOverride: ""
 fullnameOverride: ""
 global: {}
 custom: {}
-networkpolicy:
+networkPolicy:
   enabled: true
 
 # Resources for the BinderHub created build pods

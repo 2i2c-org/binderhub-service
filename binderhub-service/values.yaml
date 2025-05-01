@@ -121,7 +121,7 @@ ingress:
 dockerApi:
   image:
     repository: docker.io/library/docker
-    tag: "27.5.1-dind" # source: https://hub.docker.com/_/docker/tags
+    tag: "28.1.1-dind" # source: https://hub.docker.com/_/docker/tags
     pullPolicy: ""
     pullSecrets: []
   resources: {}

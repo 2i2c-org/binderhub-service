@@ -51,9 +51,13 @@ spec:
             {{- .Values.dockerApi.securityContext | toYaml | nindent 12 }}
       volumes:
         - name: data
+          {{- if .Values.dockerApi.storage }}
+          {{- .Values.dockerApi.storage | toYaml | nindent 10 }}
+          {{- else }}
           hostPath:
             path: /var/lib/{{ .Release.Namespace }}-{{ .Release.Name }}/docker-api
             type: DirectoryOrCreate
+          {{- end  }}
         - name: exec
           hostPath:
             path: /var/run/{{ .Release.Namespace}}-{{ .Release.Name }}/docker-api

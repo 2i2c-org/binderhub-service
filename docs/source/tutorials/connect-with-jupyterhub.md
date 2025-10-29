@@ -67,7 +67,6 @@ The first few steps are lifted directly from the [install JupyterHub](https://z2
    ```
 
    where:
-
    - `<helm-release-name>` is any name you can use to refer to this image
      (like `jupyterhub`)
 

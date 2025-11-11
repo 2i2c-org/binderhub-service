@@ -222,6 +222,9 @@ properties:
     properties:
       image: *image
       resources: *resources
+      storage:
+        type: object
+        additionalProperties: true
       securityContext: *securityContext
       podSecurityContext: *podSecurityContext
       podAnnotations: *labels-and-annotations

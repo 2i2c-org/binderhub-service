@@ -84,7 +84,6 @@ The following steps describe how to install the `binderhub-service` helm chart.
    ```
 
    where:
-
    1. `<repository-path>` is what you copied from step 5.
 
    2. `<json-key-from-service-account>` is the JSON file you downloaded in step 7.

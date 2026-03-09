@@ -8,12 +8,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      {{- include "binderhub-service.selectorLabels" . | nindent 6 }}
+      {{- include "binderhub-service.appLabels" . | nindent 6 }}
       app.kubernetes.io/component: docker-api
   template:
     metadata:
       labels:
-        {{- include "binderhub-service.selectorLabels" . | nindent 8 }}
+        {{- include "binderhub-service.appLabels" . | nindent 8 }}
         app.kubernetes.io/component: docker-api
       {{- with .Values.podAnnotations }}
       annotations:

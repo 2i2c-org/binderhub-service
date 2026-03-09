@@ -16,4 +16,6 @@ spec:
       {{- with .Values.service.nodePort }}
       nodePort: {{ . }}
       {{- end }}
-  selector: {{- include "binderhub-service.selectorLabels" . | nindent 4 }}
+  selector: 
+    {{- include "binderhub-service.appLabels" . | nindent 4 }}
+    app.kubernetes.io/component: binderhub

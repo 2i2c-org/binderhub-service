@@ -3,7 +3,7 @@
 */}}
 {{- define "binderhub-service.labels" -}}
 helm.sh/chart: {{ printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{ include "binderhub-service.selectorLabels" . }}
+{{ include "binderhub-service.appLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -11,9 +11,9 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{- /*
-  Selector labels
+  App labels
 */}}
-{{- define "binderhub-service.selectorLabels" -}}
+{{- define "binderhub-service.appLabels" -}}
 app.kubernetes.io/name: {{ .Values.nameOverride | default .Chart.Name | trunc 63 | trimSuffix "-" }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}

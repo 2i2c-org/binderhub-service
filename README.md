@@ -1,7 +1,7 @@
 # binderhub-service
 
 [![Documentation Status](https://img.shields.io/readthedocs/binderhub-service?logo=read-the-docs)](https://binderhub-service.readthedocs.io/en/latest/)
-[![Latest chart development release](https://img.shields.io/badge/Helm_releases-https://2i2c.org/binderhub-service/blue?link=https://2i2c.org/binderhub-service&color=blue)](https://2i2c.org/binderhub-service/)
+![Latest chart releases](https://img.shields.io/badge/https%3A%2F%2F2i2c.org%2Fbinderhub--service-blue?style=flat&label=Helm%20releases&link=https%3A%2F%2F2i2c.org%2Fbinderhub-service)
 
 The binderhub-service is a Helm chart and guide to run BinderHub (the Python
 software), as a standalone service to build and push images with repo2docker,

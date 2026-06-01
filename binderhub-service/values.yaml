@@ -74,6 +74,7 @@ securityContext:
 
 podSecurityContext: {}
 podAnnotations: {}
+podLabels: {}
 nodeSelector: {}
 affinity: {}
 tolerations: []

@@ -140,6 +140,7 @@ properties:
     patternProperties:
       ".*":
         type: string
+  podLabels: *labels-and-annotations
   nodeSelector: &nodeSelector
     type: object
     additionalProperties: true

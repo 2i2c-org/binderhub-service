@@ -20,6 +20,11 @@ spec:
       labels:
         {{- include "binderhub-service.appLabels" . | nindent 8 }}
         app.kubernetes.io/component: binderhub
+        # Allow the binder pod to talk to the hub pod for authentication
+        hub.jupyter.org/network-access-hub: "true"
+        {{- with .Values.podLabels }}
+        {{- . | toYaml | nindent 8 }}
+        {{- end }}
     spec:
       volumes:
         - name: secret

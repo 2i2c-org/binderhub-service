@@ -2,6 +2,8 @@
 This configuration file is mounted to be read by binderhub with the sole purpose
 of loading chart configuration passed via "config" and "extraConfig".
 """
+import glob
+import os
 
 from functools import lru_cache
 
@@ -48,6 +50,17 @@ for section, value in get_chart_config("config").items():
         continue
     print(f"Loading config.{section}")
     c[section].update(value)
+
+# load /usr/local/etc/binderhub/binderhub_config.d config files
+config_dir = "/usr/local/etc/binderhub/binderhub_config.d"
+if os.path.isdir(config_dir):
+    for file_path in sorted(glob.glob(f"{config_dir}/*.py")):
+        file_name = os.path.basename(file_path)
+        print(f"Loading {config_dir} config: {file_name}")
+        with open(file_path) as f:
+            file_content = f.read()
+        # compiling makes debugging easier: https://stackoverflow.com/a/437857
+        exec(compile(source=file_content, filename=file_name, mode="exec"))
 
 # load "extraConfig" (Python code)
 for key, snippet in sorted(get_chart_config("extraConfig").items()):
